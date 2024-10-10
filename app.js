@@ -7,7 +7,6 @@ document.getElementById('btn').addEventListener('click',function(){
 
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`)
         .then(res => res.json())
-        // .then(data => showMealData(data.meals))
         .then(data => sreachBtnMeal(data.meals))
 
         // let mainDiv = document.getElementById('mainDiv');
@@ -40,7 +39,7 @@ function sreachBtnMeal(meals){
         <div class="card-body items-center text-center">
           <h2 class="card-title">${strMeal}</h2>
           <p class="font-semibold ">${strArea}</p>
-          <a href="${strYoutube}" class="text-red-700 font-semibold">How to cook</a>
+          <a href="${strYoutube}" class="text-red-700 font-semibold">How to cook (Video)</a>
 
           <div class="card-actions">
             <button class="btn btn-primary" onclick="'${strMealThumb}', ${null}">view detils</button>
@@ -86,9 +85,9 @@ function showMealData(categories){
             </figure>
             <div class="card-body items-center text-center">
               <h2 class="card-title font-bold">${strCategory}</h2>
-              <p class="overflow-hidden text-sm font-semibold">We Are Comfident About Our Quality</p>
+              
               <div class="card-actions">
-                <button class="btn btn-primary" onclick="details('${strCategoryDescription}', '${strCategoryThumb}')">view detils</button>
+                <button class="btn btn-primary" onclick="details('${strCategoryDescription || 'na'}', '${strCategoryThumb}')">view detils</button>
               </div>
             </div>
           </div>
@@ -133,3 +132,45 @@ function closeModal() {
 }
 
 allMealsFunction()
+
+
+// category button
+
+function categoryBtn(){
+ 
+  fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`)
+        .then(res => res.json())
+        .then(data => {
+
+          let categories = (data.categories)
+          console.log((categories));
+
+          categories.forEach((makeBtn)=>{
+                  // console.log(makeBtn);
+
+                  let btnDiv = document.getElementById('btnDiv') 
+
+                  let {idCategory,strCategory} = makeBtn
+
+                  let btn = document.createElement('button');
+                  btn.classList.add('btn-active','btn','btn-accent','text-white')
+                  // console.log(btn);
+
+                  btn.innerText = strCategory;
+                  btn.addEventListener('click',function(){
+                    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${strCategory}`)
+                    .then(res => res.json())
+                     .then(data => showMealData(data.meals))
+                    // .then(data => showMealData(data))
+                    .catch(error => console.error('Error fetching data:', error));
+                  
+                  })
+
+                  btnDiv.appendChild(btn)
+          })
+        })
+
+
+}
+
+categoryBtn()
