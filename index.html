@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+
+    <div class="w-10/12 mx-auto py-4">
+        <div class="navbar bg-base-100 flex md:flex-row flex-col">
+            <div class="flex-1">
+              <a class="btn btn-ghost md:text-4xl text-2xl font-bold text-indigo-600">Resty Hut</a>
+            </div>
+            <div class="flex-none">
+                <button class="btn btn-primary border-0 text-white">Sign Up</button>
+            </div>
+          </div>
+    </div>
+
+
+    <!-- main div -->
+
+  <div class="w-10/12 mx-auto ">
+    <div class="hero bg-base-200 min-h-screen bg-gradient-to-r from-teal-400 to-blue-500 rounded-xl shadow-3xl">
+      <div class="hero-content text-center">
+        <div class="max-w-md">
+          <h1 class="md:text-5xl text-2xl font-bold text-white">Taste Our Delicious Best Foods</h1>
+          <p class="py-6 text-white font-semibold">
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humou.
+          </p>
+          <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" id="input"/>
+          <button class="btn btn-primary" id="btn">Search food</button>
+           <!-- <button class="btn bg-emerald-600 mt-5 text-white hidden" id="btn2" onclick="showData()">Show All Items</button> -->
+
+          
+        </div>
+      </div>
+    </div>
+
+
+    </div>
+
+
+
+     <!-- main section -->
+
+     <div class="w-10/12 mx-auto py-7">
+          <h2 class="md:text-4xl text-2xl text-indigo-600 text-center py-5 font-bold">Chose Your Favourate Food</h2>
+
+          <div id="upperDiv" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" >
+
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" id="mainDiv">
+
+          </div>
+
+         
+     </div>
+
+     <div id="modal">
+          <!-- Open the modal using ID.showModal() method -->
+             <button class="btn hidden" onclick="">open modal</button>
+      
+             
+     </div>
+
+
+     <script src="app.js"></script>
+
+
+
+    <!-- Footer Section -->
+<footer class="footer footer-center p-10 bg-indigo-600 text-white text-base-content rounded-lg">
+  <div>
+    <h2 class="md:text-4xl text-2xl font-bold hover:text-blue-500 transition-colors duration-300 cursor-pointer">Resty Hut</h2>
+    <p class="font-bold mt-2">
+      Your favorite place for delicious food <br/> since 2023
+    </p>
+    <p>Copyright © 2024 - All rights reserved</p>
+  </div> 
+
+  <div class="mt-4">
+    <div class="grid grid-flow-col gap-6">
+      <a href="#" class="text-lg hover:text-green-600 transition-all duration-300">About Us</a> 
+      <a href="#" class="text-lg hover:text-green-600 transition-all duration-300">Contact</a> 
+      <a href="#" class="text-lg hover:text-green-600 transition-all duration-300">Privacy Policy</a>
+    </div>
+  </div>
+
+  <div class="grid grid-flow-col gap-6 mt-5">
+    <!-- Social Icons -->
+    <a href="#" class="tooltip tooltip-bottom" data-tip="Twitter">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-current text-blue-500 hover:text-blue-600 transition-colors duration-300" viewBox="0 0 24 24">
+        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.565-2.005.978-3.127 1.2-.896-.956-2.173-1.555-3.586-1.555-2.713 0-4.914 2.201-4.914 4.917 0 .385.043.76.126 1.122-4.083-.205-7.702-2.159-10.126-5.127-.423.726-.666 1.571-.666 2.473 0 1.707.869 3.215 2.19 4.099-.807-.026-1.566-.247-2.229-.616v.062c0 2.385 1.697 4.374 3.95 4.828-.413.111-.849.171-1.296.171-.317 0-.626-.031-.928-.087.627 1.956 2.445 3.379 4.6 3.419-1.68 1.319-3.809 2.104-6.114 2.104-.397 0-.79-.023-1.175-.069 2.179 1.396 4.768 2.212 7.548 2.212 9.054 0 14.01-7.5 14.01-14.009 0-.213-.005-.426-.014-.637.961-.694 1.796-1.562 2.457-2.549z"></path>
+      </svg>
+    </a>
+
+    <a href="#" class="tooltip tooltip-bottom" data-tip="YouTube">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-current text-red-500 hover:text-red-600 transition-colors duration-300" viewBox="0 0 24 24">
+        <path d="M19.615 3.184c-1.224-.64-2.546-1.039-3.972-1.165-2.07-.19-4.142-.195-6.21 0-1.425.126-2.748.526-3.972 1.165-1.224.64-2.308 1.53-3.202 2.638-.944 1.157-1.592 2.497-1.932 3.97-.377 1.623-.377 3.255-.377 4.878s0 3.255.377 4.878c.34 1.473.988 2.813 1.932 3.97.894 1.108 1.978 1.998 3.202 2.638 1.224.64 2.546 1.039 3.972 1.165 2.07.19 4.142.195 6.21 0 1.425-.126 2.748-.526 3.972-1.165 1.224-.64 2.308-1.53 3.202-2.638.944-1.157 1.592-2.497 1.932-3.97.377-1.623.377-3.255.377-4.878s0-3.255-.377-4.878c-.34-1.473-.988-2.813-1.932-3.97-.894-1.108-1.978-1.998-3.202-2.638zm-7.615 12.816v-8l6 4-6 4z"></path>
+      </svg>
+    </a>
+</footer>
+
+    
+
+</body>
+</html>
